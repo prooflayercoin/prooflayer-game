@@ -42,7 +42,7 @@ export class LevelRequirementError extends Error {
 
 function dbToState(db: NonNullable<DbCharacter>): CharacterState {
   const skills = SKILL_IDS.reduce(
-    (acc, id) => {
+    (acc: Record<SkillId, { xp: bigint }>, id: SkillId) => {
       const row = db.skills.find((s) => s.skillId === id);
       acc[id] = { xp: row?.xp ?? 0n };
       return acc;
@@ -51,7 +51,7 @@ function dbToState(db: NonNullable<DbCharacter>): CharacterState {
   );
 
   const equipment = EQUIPMENT_SLOTS.reduce(
-    (acc, slot) => {
+    (acc: Record<EquipmentSlot, string | null>, slot: EquipmentSlot) => {
       const row = db.equipment.find((e) => e.slot === slot);
       acc[slot] = row?.itemId ?? null;
       return acc;
@@ -82,7 +82,7 @@ async function persistState(
   state: CharacterState,
   events: TickEvent[]
 ): Promise<void> {
-  await prisma.$transaction(async (tx) => {
+  await prisma.$transaction(async (tx: any) => {
     await tx.character.update({
       where: { id: state.id },
       data: {

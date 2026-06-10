@@ -30,7 +30,7 @@ export async function equipItem(
     throw new ItemSlotMismatchError(itemId, slot);
   }
 
-  await prisma.$transaction(async (tx) => {
+  await prisma.$transaction(async (tx: any) => {
     const stack = await tx.inventoryStack.findUnique({
       where: { characterId_itemId: { characterId, itemId } },
     });
@@ -84,7 +84,7 @@ export async function unequipSlot(
   characterId: string,
   slot: EquipmentSlot
 ): Promise<void> {
-  await prisma.$transaction(async (tx) => {
+  await prisma.$transaction(async (tx: any) => {
     const slotRow = await tx.equipmentSlot.findUnique({
       where: { characterId_slot: { characterId, slot } },
     });
