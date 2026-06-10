@@ -5,8 +5,8 @@ WORKDIR /app
 # Install pnpm globally
 RUN npm install -g pnpm
 
-# Copy root config files
-COPY tsconfig.base.json tsconfig.json package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+# Copy root config files (only files that exist)
+COPY tsconfig.base.json package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 
 # Copy workspace package configs
 COPY packages/shared/package.json ./packages/shared/
