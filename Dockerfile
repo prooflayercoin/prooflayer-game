@@ -15,11 +15,7 @@ COPY apps ./apps
 # Install all dependencies (including workspace deps)
 RUN pnpm install --frozen-lockfile
 
-# Build dependencies
-RUN pnpm --filter @prooflayer/shared build
-RUN pnpm --filter @prooflayer/config build
-
-# Build and start API only
+# Build API
 RUN pnpm --filter @prooflayer/api build
 
 EXPOSE 3000
