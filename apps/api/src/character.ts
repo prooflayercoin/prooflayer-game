@@ -43,7 +43,7 @@ export class LevelRequirementError extends Error {
 function dbToState(db: NonNullable<DbCharacter>): CharacterState {
   const skills = SKILL_IDS.reduce(
     (acc: Record<SkillId, { xp: bigint }>, id: SkillId) => {
-      const row = db.skills.find((s) => s.skillId === id);
+      const row = db.skills.find((s: any) => s.skillId === id);
       acc[id] = { xp: row?.xp ?? 0n };
       return acc;
     },
@@ -52,7 +52,7 @@ function dbToState(db: NonNullable<DbCharacter>): CharacterState {
 
   const equipment = EQUIPMENT_SLOTS.reduce(
     (acc: Record<EquipmentSlot, string | null>, slot: EquipmentSlot) => {
-      const row = db.equipment.find((e) => e.slot === slot);
+      const row = db.equipment.find((e: any) => e.slot === slot);
       acc[slot] = row?.itemId ?? null;
       return acc;
     },
