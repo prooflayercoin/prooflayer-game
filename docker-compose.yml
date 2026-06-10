@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: prooflayer-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: prooflayer
+      POSTGRES_PASSWORD: prooflayer
+      POSTGRES_DB: prooflayer
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prooflayer -d prooflayer"]
+      interval: 5s
+      timeout: 3s
+      retries: 10

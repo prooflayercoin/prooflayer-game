@@ -1,0 +1,28 @@
+{
+  "name": "prooflayer",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Prooflayer — browser-based idle skilling game",
+  "packageManager": "pnpm@11.5.2",
+  "scripts": {
+    "dev": "pnpm --parallel --filter './apps/*' dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d postgres",
+    "db:migrate": "pnpm --filter @prooflayer/api exec prisma migrate dev",
+    "db:seed": "pnpm --filter @prooflayer/api seed"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/node": "^22.9.0",
+    "vitest": "^2.1.5",
+    "tsx": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

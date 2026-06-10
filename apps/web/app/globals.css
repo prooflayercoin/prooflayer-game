@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-lattice-bg text-lattice-text font-display antialiased;
+  }
+  ::selection {
+    @apply bg-lattice-accent/40 text-white;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-lg border border-lattice-edge bg-lattice-panel;
+  }
+  .panel-inset {
+    @apply rounded-lg border border-lattice-edge bg-lattice-panel2;
+  }
+  .stat {
+    @apply text-lattice-dim text-xs uppercase tracking-wider;
+  }
+}

@@ -1,0 +1,66 @@
+// Prooflayer game state schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Character {
+  id               String           @id
+  name             String
+  gold             BigInt           @default(0)
+  lastTickAt       DateTime         @default(now())
+  activeActionId   String?
+  activeProgressMs Int              @default(0)
+  rngSeed          Int              @default(1)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  skills           SkillProgress[]
+  inventory        InventoryStack[]
+  equipment        EquipmentSlot[]
+  auditEvents      AuditEvent[]
+}
+
+model SkillProgress {
+  id          String    @id @default(cuid())
+  characterId String
+  skillId     String
+  xp          BigInt    @default(0)
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@unique([characterId, skillId])
+}
+
+model InventoryStack {
+  id          String    @id @default(cuid())
+  characterId String
+  itemId      String
+  quantity    BigInt    @default(0)
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@unique([characterId, itemId])
+}
+
+model EquipmentSlot {
+  id          String    @id @default(cuid())
+  characterId String
+  slot        String
+  itemId      String?
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@unique([characterId, slot])
+}
+
+model AuditEvent {
+  id          String    @id @default(cuid())
+  characterId String
+  kind        String
+  payload     Json
+  createdAt   DateTime  @default(now())
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@index([characterId, createdAt])
+}
