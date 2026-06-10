@@ -5,24 +5,23 @@ WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy root package files
+# Copy workspace files
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 
-# Copy all workspaces
+# Copy all packages and apps
 COPY packages ./packages
 COPY apps ./apps
 
-# Install dependencies
+# Install all dependencies (including workspace deps)
 RUN pnpm install --frozen-lockfile
 
-# Build packages
+# Build dependencies
 RUN pnpm --filter @prooflayer/shared build
 RUN pnpm --filter @prooflayer/config build
 
-# Build API
-WORKDIR /app/apps/api
-RUN pnpm build
+# Build and start API only
+RUN pnpm --filter @prooflayer/api build
 
 EXPOSE 3000
 
-CMD ["node", "dist/index.js"]
+CMD ["pnpm", "--filter", "@prooflayer/api", "start"]
