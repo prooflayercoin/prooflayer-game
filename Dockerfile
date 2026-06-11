@@ -24,13 +24,11 @@ COPY apps/api/tsconfig.json ./apps/api/
 # Install dependencies with pnpm
 RUN pnpm install --frozen-lockfile
 
-# Build all packages (shared, config, api)
-RUN pnpm --filter @prooflayer/shared build
-RUN pnpm --filter @prooflayer/config build
-RUN pnpm --filter @prooflayer/api build
+# Install tsx globally for running TypeScript
+RUN npm install -g tsx
 
 # Expose port
 EXPOSE 3000
 
-# Start the API
-CMD ["node", "apps/api/dist/index.js"]
+# Start the API using tsx (TypeScript runtime)
+CMD ["pnpm", "--filter", "@prooflayer/api", "start"]
