@@ -5,7 +5,8 @@
   "description": "Prooflayer — browser-based idle skilling game",
   "packageManager": "pnpm@11.5.2",
   "scripts": {
-    "dev": "pnpm --parallel --filter './apps/*' dev",
+    "build:packages": "pnpm --filter @prooflayer/shared build && pnpm --filter @prooflayer/config build",
+    "dev": "pnpm build:packages && pnpm --parallel --filter './apps/*' dev",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",

@@ -13,5 +13,8 @@ const schema = z.object({
   NODE_ENV: z.string().default("development"),
 });
 
-export const env = schema.parse(process.env);
+export const env = schema.parse({
+  ...process.env,
+  API_PORT: process.env.PORT || process.env.API_PORT,
+});
 export const OFFLINE_CAP_MS = env.OFFLINE_CATCHUP_CAP_HOURS * 60 * 60 * 1000;
