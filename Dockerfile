@@ -24,7 +24,9 @@ COPY apps/api/tsconfig.json ./apps/api/
 # Install dependencies with pnpm
 RUN pnpm install --frozen-lockfile
 
-# Build the API
+# Build all packages (shared, config, api)
+RUN pnpm --filter @prooflayer/shared build
+RUN pnpm --filter @prooflayer/config build
 RUN pnpm --filter @prooflayer/api build
 
 # Expose port
