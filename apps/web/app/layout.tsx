@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Prooflayer",
   description:
-    "An idle skilling game in a world held together by layered sigils.",
+    "Explore, gather, craft, and fight through an original isometric online world.",
 };
 
 export default function RootLayout({

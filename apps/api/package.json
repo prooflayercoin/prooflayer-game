@@ -12,7 +12,7 @@
     "railway:start": "pnpm db:migrate && pnpm db:seed && pnpm start",
     "seed": "tsx src/seed.ts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
