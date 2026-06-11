@@ -1,11 +1,7 @@
 {
-  "buildCommand": "pnpm --filter @prooflayer/web build",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm build:packages && pnpm --filter @prooflayer/web build",
   "outputDirectory": "apps/web/.next",
-  "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_API_URL": {
-      "description": "API base URL for game server",
-      "default": "https://api.prooflayer.app"
-    }
-  }
+  "framework": "nextjs"
 }
