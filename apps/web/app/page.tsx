@@ -1,23 +1,67 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Home() {
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "When is Prooflayer launching?",
+      a: "We're targeting early 2026 for the full launch. Join our Discord for the latest updates and early access opportunities.",
+    },
+    {
+      q: "Is this free to play?",
+      a: "Yes! Prooflayer is completely free to play. Optional cosmetics and battle pass will fund development, but all core gameplay is free.",
+    },
+    {
+      q: "Can I play offline?",
+      a: "Absolutely. You can play offline and your progress will sync to the server when you reconnect. Up to 12 hours of offline progress.",
+    },
+    {
+      q: "How does the Solana integration work?",
+      a: "Your verified on-chain progress can be converted to SPL tokens. This is coming in Phase 2. No pay-to-win mechanics.",
+    },
+    {
+      q: "What platforms will it be on?",
+      a: "Prooflayer launches as a web app (browser-based). Mobile and other platforms are planned for Phase 3.",
+    },
+    {
+      q: "Is PvP supported?",
+      a: "PvP arenas are coming in Phase 3. Phase 1 focuses on PvE progression and cooperative guild features.",
+    },
+  ];
+
   return (
     <div className="w-full min-h-screen bg-lattice-bg text-lattice-text">
-      {/* Nav */}
-      <nav className="border-b border-lattice-edge">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
-          <div className="text-2xl font-bold text-lattice-accent">⬡ Prooflayer</div>
-          <a
-            href="https://discord.gg"
-            className="px-6 py-2 rounded bg-lattice-accent text-lattice-bg font-bold hover:opacity-90 transition"
-          >
-            Discord
+      {/* Fixed Navigation */}
+      <nav className="fixed top-0 w-full border-b border-lattice-edge bg-lattice-bg/95 backdrop-blur z-50">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <a href="#" className="text-2xl font-bold text-lattice-accent">
+            ⬡ Prooflayer
           </a>
+          <div className="flex gap-8 items-center">
+            <a href="#features" className="text-sm hover:text-lattice-accent transition">
+              Features
+            </a>
+            <a href="#faq" className="text-sm hover:text-lattice-accent transition">
+              FAQ
+            </a>
+            <a href="#contact" className="text-sm hover:text-lattice-accent transition">
+              Contact
+            </a>
+            <a
+              href="https://discord.gg"
+              className="px-6 py-2 rounded bg-lattice-accent text-lattice-bg font-bold hover:opacity-90 transition text-sm"
+            >
+              Discord
+            </a>
+          </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      {/* Hero (with top padding for fixed nav) */}
+      <section className="max-w-6xl mx-auto px-6 py-32 pt-40">
         <div className="space-y-6">
           <div className="inline-block px-4 py-2 rounded-full bg-lattice-accent/20 border border-lattice-accent/50 text-lattice-accent text-sm font-bold">
             🎮 Coming Soon
@@ -133,6 +177,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
+
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="border border-lattice-edge rounded-lg overflow-hidden bg-lattice-panel/50">
+              <button
+                onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
+                className="w-full px-6 py-4 flex justify-between items-center hover:bg-lattice-panel transition text-left"
+              >
+                <span className="font-bold">{faq.q}</span>
+                <span className="text-lattice-accent text-xl">{expandedFaq === i ? "−" : "+"}</span>
+              </button>
+              {expandedFaq === i && (
+                <div className="px-6 py-4 border-t border-lattice-edge text-lattice-dim bg-lattice-bg/50">
+                  {faq.a}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="max-w-6xl mx-auto px-6 py-20">
+        <div className="text-center space-y-8">
+          <div>
+            <h2 className="text-4xl font-bold mb-3">Have Questions?</h2>
+            <p className="text-lattice-dim max-w-2xl mx-auto">
+              Join our community on Discord or reach out directly. We'd love to hear from you.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a
+              href="https://discord.gg"
+              className="p-6 rounded-lg bg-lattice-panel border border-lattice-edge hover:border-lattice-accent/50 transition"
+            >
+              <div className="text-3xl mb-2">💬</div>
+              <h3 className="font-bold mb-2">Discord Community</h3>
+              <p className="text-sm text-lattice-dim">Chat with devs and players</p>
+            </a>
+
+            <a
+              href="https://x.com/ProofLayerCoin"
+              className="p-6 rounded-lg bg-lattice-panel border border-lattice-edge hover:border-lattice-accent/50 transition"
+            >
+              <div className="text-3xl mb-2">𝕏</div>
+              <h3 className="font-bold mb-2">Twitter</h3>
+              <p className="text-sm text-lattice-dim">Latest updates and news</p>
+            </a>
+
+            <a
+              href="mailto:support@prooflayer.app"
+              className="p-6 rounded-lg bg-lattice-panel border border-lattice-edge hover:border-lattice-accent/50 transition"
+            >
+              <div className="text-3xl mb-2">📧</div>
+              <h3 className="font-bold mb-2">Email Support</h3>
+              <p className="text-sm text-lattice-dim">support@prooflayer.app</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center space-y-6">
@@ -145,19 +254,55 @@ export default function Home() {
               Notify Me
             </button>
             <a
-              href="https://twitter.com"
+              href="https://x.com/ProofLayerCoin"
               className="px-8 py-3 rounded border-2 border-lattice-accent text-lattice-accent font-bold hover:bg-lattice-accent/10 transition"
             >
-              Follow
+              Follow on Twitter
             </a>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-lattice-edge mt-20">
-        <div className="max-w-6xl mx-auto px-6 py-12 text-center text-sm text-lattice-dim">
-          <p>© 2026 Prooflayer. A game where the grind never ends.</p>
+      <footer className="border-t border-lattice-edge mt-20 bg-lattice-panel/50">
+        <div className="max-w-6xl mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+              <h3 className="font-bold mb-4">Prooflayer</h3>
+              <p className="text-sm text-lattice-dim">An isometric RPG built for the grind.</p>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Game</h4>
+              <ul className="space-y-2 text-sm text-lattice-dim">
+                <li><a href="#features" className="hover:text-lattice-accent transition">Features</a></li>
+                <li><a href="#faq" className="hover:text-lattice-accent transition">FAQ</a></li>
+                <li><a href="#contact" className="hover:text-lattice-accent transition">Contact</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Community</h4>
+              <ul className="space-y-2 text-sm text-lattice-dim">
+                <li><a href="https://discord.gg" className="hover:text-lattice-accent transition">Discord</a></li>
+                <li><a href="https://x.com/ProofLayerCoin" className="hover:text-lattice-accent transition">Twitter</a></li>
+                <li><a href="https://github.com/prooflayercoin/prooflayer-game" className="hover:text-lattice-accent transition">GitHub</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm text-lattice-dim">
+                <li><a href="/privacy" className="hover:text-lattice-accent transition">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-lattice-accent transition">Terms of Service</a></li>
+                <li><a href="/support" className="hover:text-lattice-accent transition">Support Center</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-lattice-edge pt-8 text-center text-sm text-lattice-dim">
+            <p>© 2026 Prooflayer. A game where the grind never ends.</p>
+          </div>
         </div>
       </footer>
     </div>
