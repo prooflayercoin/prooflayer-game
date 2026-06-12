@@ -36,6 +36,11 @@ export interface CharacterView {
   id: string;
   name: string;
   gold: string;
+  worldId: string;
+  regionId: string;
+  position: { regionId: string; x: number; y: number };
+  hp: number;
+  maxHp: number;
   totalLevel: number;
   totalXp: string;
   activeAction: ActiveActionView | null;
@@ -71,6 +76,13 @@ export interface GameConfig {
   skills: SkillBlock[];
   items: Record<
     string,
-    { id: string; name: string; description: string; category: string; baseValue: number }
+    {
+      id: string;
+      name: string;
+      description: string;
+      category: string;
+      slot?: string;
+      baseValue: number;
+    }
   >;
 }

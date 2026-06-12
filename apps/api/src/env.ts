@@ -9,7 +9,7 @@ const schema = z.object({
     .preprocess((v) => (v === "" ? undefined : v), z.string())
     .default("test-character-01"),
   OFFLINE_CATCHUP_CAP_HOURS: z.coerce.number().default(12),
-  TICK_INTERVAL_MS: z.coerce.number().default(1000),
+  TICK_INTERVAL_MS: z.coerce.number().default(600),
   NODE_ENV: z.string().default("development"),
 });
 

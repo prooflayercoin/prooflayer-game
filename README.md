@@ -23,6 +23,31 @@ pnpm dev
 
 Open http://localhost:3000/play
 
+### Local ports
+
+| Service | URL |
+|---|---|
+| Web | http://localhost:3000/play |
+| API | http://localhost:4000 |
+| Postgres | localhost:5433 |
+
+If one side of the app is already running, start the other side directly:
+
+```bash
+pnpm dev:api
+pnpm dev:web
+```
+
+The web client reads `NEXT_PUBLIC_API_URL` and defaults to
+`http://localhost:4000`, so a missing API server will leave the game on the
+loading screen.
+
+With the dev servers running, verify the local web/API handshake with:
+
+```bash
+pnpm smoke:browser
+```
+
 ## Skills
 
 | Skill | Role |

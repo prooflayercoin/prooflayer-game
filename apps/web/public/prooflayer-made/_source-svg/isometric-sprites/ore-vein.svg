@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <linearGradient id="panelGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#3a2514"/>
+      <stop offset="1" stop-color="#17100a"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffe28a"/>
+      <stop offset=".45" stop-color="#e0ad4e"/>
+      <stop offset="1" stop-color="#8e5a20"/>
+    </linearGradient>
+    
+  </defs>
+  <ellipse cx="128" cy="180" rx="72" ry="24" fill="#000" opacity=".22"/><path d="M128 159 L183 184 L128 209 L73 184Z" fill="#6d665c" stroke="#2b2118" stroke-width="3"/><path d="M75 161 L105 104 L145 96 L188 154 L165 190 L99 193Z" fill="#6b635d" stroke="#282522" stroke-width="5"/><path d="M103 136 L130 111 L154 145 L131 158Z" fill="#bd6938" stroke="#4d2718" stroke-width="4"/><path d="M126 101 L145 96 L188 154 L151 141Z" fill="#928981" opacity=".6"/>
+</svg>

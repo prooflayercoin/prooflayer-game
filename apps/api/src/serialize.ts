@@ -45,6 +45,11 @@ export interface CharacterView {
   id: string;
   name: string;
   gold: string;
+  worldId: string;
+  regionId: string;
+  position: { regionId: string; x: number; y: number };
+  hp: number;
+  maxHp: number;
   totalLevel: number;
   totalXp: string;
   activeAction: ActiveActionView | null;
@@ -119,6 +124,11 @@ export function viewCharacter(state: CharacterState): CharacterView {
     id: state.id,
     name: state.name,
     gold: state.gold.toString(),
+    worldId: state.worldId,
+    regionId: state.regionId,
+    position: { regionId: state.regionId, x: state.tileX, y: state.tileY },
+    hp: state.hp,
+    maxHp: state.maxHp,
     totalLevel,
     totalXp,
     activeAction,

@@ -10,18 +10,53 @@ datasource db {
 
 model Character {
   id               String           @id
+  accountId        String?
   name             String
   gold             BigInt           @default(0)
+  worldId          String           @default("world-1")
+  regionId         String           @default("market_cross")
+  tileX            Int              @default(32)
+  tileY            Int              @default(32)
+  hp               Int              @default(10)
+  maxHp            Int              @default(10)
   lastTickAt       DateTime         @default(now())
   activeActionId   String?
   activeProgressMs Int              @default(0)
   rngSeed          Int              @default(1)
   createdAt        DateTime         @default(now())
   updatedAt        DateTime         @updatedAt
+  account          Account?         @relation(fields: [accountId], references: [id], onDelete: Cascade)
   skills           SkillProgress[]
   inventory        InventoryStack[]
+  bank             BankStack[]
   equipment        EquipmentSlot[]
+  quests           QuestProgress[]
   auditEvents      AuditEvent[]
+
+  @@index([accountId])
+  @@index([worldId, regionId])
+}
+
+model Account {
+  id           String      @id @default(cuid())
+  email        String      @unique
+  passwordHash String
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  characters   Character[]
+  sessions     Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  accountId String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  account   Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  @@index([accountId])
+  @@index([expiresAt])
 }
 
 model SkillProgress {
@@ -35,6 +70,16 @@ model SkillProgress {
 }
 
 model InventoryStack {
+  id          String    @id @default(cuid())
+  characterId String
+  itemId      String
+  quantity    BigInt    @default(0)
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@unique([characterId, itemId])
+}
+
+model BankStack {
   id          String    @id @default(cuid())
   characterId String
   itemId      String
@@ -63,4 +108,16 @@ model AuditEvent {
   character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
 
   @@index([characterId, createdAt])
+}
+
+model QuestProgress {
+  id          String    @id @default(cuid())
+  characterId String
+  questId     String
+  state       String
+  data        Json      @default("{}")
+  updatedAt   DateTime  @updatedAt
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@unique([characterId, questId])
 }

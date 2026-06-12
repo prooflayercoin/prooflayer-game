@@ -77,6 +77,12 @@ export interface CharacterState {
   id: string;
   name: string;
   gold: bigint;
+  worldId: string;
+  regionId: string;
+  tileX: number;
+  tileY: number;
+  hp: number;
+  maxHp: number;
   lastTickAt: Date;
   activeActionId: string | null;
   activeProgressMs: number;

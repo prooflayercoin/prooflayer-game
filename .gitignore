@@ -12,6 +12,9 @@ apps/api/.env
 postgres-data/
 *.log
 .DS_Store
+.asset-work/
+.venv-assets/
+3D Game Assets/
 Isometric Assets/
 apps/web/public/assets/
 *.tsbuildinfo

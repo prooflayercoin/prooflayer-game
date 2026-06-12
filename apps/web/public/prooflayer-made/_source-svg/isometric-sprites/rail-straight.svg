@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <linearGradient id="panelGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#3a2514"/>
+      <stop offset="1" stop-color="#17100a"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffe28a"/>
+      <stop offset=".45" stop-color="#e0ad4e"/>
+      <stop offset="1" stop-color="#8e5a20"/>
+    </linearGradient>
+    
+  </defs>
+  <ellipse cx="128" cy="180" rx="72" ry="24" fill="#000" opacity=".22"/><path d="M128 143 L203 175 L128 207 L53 175Z" fill="#9a744d" stroke="#2b2118" stroke-width="3"/><path d="M67 159 L180 121 M82 182 L195 144" stroke="#3c2817" stroke-width="9" stroke-linecap="round"/><path d="M87 156 L103 181 M116 146 L132 171 M146 136 L162 161 M174 126 L190 151" stroke="#8c5b34" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -6,7 +6,7 @@ import {
   startAction,
   stopAction,
 } from "../character.js";
-import { env } from "../env.js";
+import { characterIdForRequest } from "../auth.js";
 import { viewCharacter } from "../serialize.js";
 
 export async function actionRoutes(app: FastifyInstance) {
@@ -16,7 +16,8 @@ export async function actionRoutes(app: FastifyInstance) {
       return reply.code(400).send({ error: parsed.error.flatten() });
     }
     try {
-      const state = await startAction(env.DEV_CHARACTER_ID, parsed.data.actionId);
+      const characterId = await characterIdForRequest(req);
+      const state = await startAction(characterId, parsed.data.actionId);
       return { character: viewCharacter(state) };
     } catch (e) {
       if (e instanceof ActionNotFoundError) {
@@ -33,8 +34,9 @@ export async function actionRoutes(app: FastifyInstance) {
     }
   });
 
-  app.post("/api/action/stop", async () => {
-    const state = await stopAction(env.DEV_CHARACTER_ID);
+  app.post("/api/action/stop", async (req) => {
+    const characterId = await characterIdForRequest(req);
+    const state = await stopAction(characterId);
     return { character: viewCharacter(state) };
   });
 }

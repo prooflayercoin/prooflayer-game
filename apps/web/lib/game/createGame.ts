@@ -19,6 +19,9 @@ export function createProoflayerGame(
       antialias: true,
       powerPreference: "high-performance",
     },
+    audio: {
+      noAudio: true,
+    },
     scale: {
       mode: Phaser.Scale.RESIZE,
       autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -31,5 +34,9 @@ export function createProoflayerGame(
   return {
     destroy: () => game.destroy(true),
     setActiveAction: (actionId) => scene.setActiveAction(actionId),
+    setLocalCharacterId: (characterId) => scene.setLocalCharacterId(characterId),
+    applyRegionSnapshot: (snapshot) => scene.applyRegionSnapshot(snapshot),
+    applyPlayerDelta: (players, removedPlayerIds) =>
+      scene.applyPlayerDelta(players, removedPlayerIds),
   };
 }

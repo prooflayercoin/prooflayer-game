@@ -1,7 +1,7 @@
 import { equipSchema, unequipSchema } from "@prooflayer/shared";
 import type { FastifyInstance } from "fastify";
 import { loadCharacterState } from "../character.js";
-import { env } from "../env.js";
+import { characterIdForRequest } from "../auth.js";
 import {
   equipItem,
   ItemNotInInventoryError,
@@ -18,8 +18,9 @@ export async function equipmentRoutes(app: FastifyInstance) {
       return reply.code(400).send({ error: parsed.error.flatten() });
     }
     try {
-      await equipItem(env.DEV_CHARACTER_ID, parsed.data.slot, parsed.data.itemId);
-      const state = await loadCharacterState(env.DEV_CHARACTER_ID);
+      const characterId = await characterIdForRequest(req);
+      await equipItem(characterId, parsed.data.slot, parsed.data.itemId);
+      const state = await loadCharacterState(characterId);
       return { character: viewCharacter(state) };
     } catch (e) {
       if (e instanceof ItemNotInInventoryError) {
@@ -38,8 +39,9 @@ export async function equipmentRoutes(app: FastifyInstance) {
       return reply.code(400).send({ error: parsed.error.flatten() });
     }
     try {
-      await unequipSlot(env.DEV_CHARACTER_ID, parsed.data.slot);
-      const state = await loadCharacterState(env.DEV_CHARACTER_ID);
+      const characterId = await characterIdForRequest(req);
+      await unequipSlot(characterId, parsed.data.slot);
+      const state = await loadCharacterState(characterId);
       return { character: viewCharacter(state) };
     } catch (e) {
       if (e instanceof SlotEmptyError) {
