@@ -17,10 +17,10 @@ export default function Home() {
               ⬡ Prooflayer
             </div>
             <a
-              href="/play"
+              href="https://discord.gg"
               className="px-6 py-2 rounded-lg bg-lattice-accent/20 border border-lattice-accent text-lattice-accent hover:bg-lattice-accent/30 transition-all font-medium"
             >
-              Early Access
+              Join Discord
             </a>
           </div>
         </nav>
@@ -30,71 +30,71 @@ export default function Home() {
           <div className="text-center space-y-8">
             <div className="inline-block">
               <span className="inline-block px-4 py-2 rounded-full bg-lattice-accent/10 border border-lattice-accent/30 text-lattice-accent text-sm font-medium">
-                🚀 Coming Soon: Solana Integration
+                🎮 Coming Soon
               </span>
             </div>
 
             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
-              <span className="block">Skill Up, Earn Real</span>
+              <span className="block">Master Skills in an</span>
               <span className="bg-gradient-to-r from-lattice-accent via-lattice-accent to-lattice-accent/60 bg-clip-text text-transparent">
-                Crypto Rewards
+                Isometric RPG World
               </span>
             </h1>
 
             <p className="text-xl text-lattice-dim max-w-2xl mx-auto leading-relaxed">
-              An isometric idle skilling game where your progression is secured on-chain.
-              Build your character, master skills, and earn verifiable rewards through Solana SPL tokens.
+              A deep, progression-driven RPG where every action matters. Train combat skills, harvest resources,
+              craft gear, and build your legend in a hand-crafted isometric world.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <a
-                href="/play"
-                className="px-8 py-3 rounded-lg bg-gradient-to-r from-lattice-accent to-lattice-accent/80 text-lattice-bg font-bold hover:shadow-lg hover:shadow-lattice-accent/50 transition-all transform hover:scale-105"
-              >
-                Try Early Access →
-              </a>
-              <button className="px-8 py-3 rounded-lg border-2 border-lattice-accent/50 text-lattice-accent hover:border-lattice-accent hover:bg-lattice-accent/5 font-bold transition-all">
-                Learn More
+              <button className="px-8 py-3 rounded-lg bg-gradient-to-r from-lattice-accent to-lattice-accent/80 text-lattice-bg font-bold hover:shadow-lg hover:shadow-lattice-accent/50 transition-all transform hover:scale-105">
+                Notify Me
               </button>
+              <a
+                href="#features"
+                className="px-8 py-3 rounded-lg border-2 border-lattice-accent/50 text-lattice-accent hover:border-lattice-accent hover:bg-lattice-accent/5 font-bold transition-all"
+              >
+                Learn More ↓
+              </a>
             </div>
           </div>
         </section>
 
         {/* Features Grid */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="text-4xl font-bold text-center mb-16">Game Features</h2>
+        <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <h2 className="text-4xl font-bold text-center mb-16">Gameplay Features</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "⛏️",
-                title: "6 Core Skills",
-                desc: "Master Reaping, Quarrying, Tempering, Tracking, Distilling, and Sealing with progressive difficulty.",
+                icon: "⚔️",
+                title: "6 Skill Trees",
+                desc: "Master combat (Attack, Defense, Strength) and crafting (Tempering) alongside gathering skills (Reaping, Quarrying).",
               },
               {
-                icon: "🏺",
-                title: "Procedural World",
-                desc: "Explore a dynamic isometric world with varied terrain, NPCs, and points of interest.",
+                icon: "🏰",
+                title: "Living World",
+                desc: "Procedurally generated isometric environments with dynamic terrain, weather, and day/night cycles.",
               },
               {
-                icon: "📊",
-                title: "Server-Authoritative",
-                desc: "All progression verified server-side. Your achievements can't be faked.",
+                icon: "📈",
+                title: "Deep Progression",
+                desc: "Levels 1-99 on each skill with exponential growth. Every action builds toward mastery.",
+              },
+              {
+                icon: "🛠️",
+                title: "Craft & Equip",
+                desc: "Find rare materials, craft legendary gear, and customize your character's loadout.",
               },
               {
                 icon: "💰",
-                title: "Earn Rewards",
-                desc: "Convert your in-game gold into real Solana SPL tokens once integration launches.",
+                title: "Economy System",
+                desc: "Buy, sell, and trade with NPCs. Gold flows from combat, gathering, and quest rewards.",
               },
               {
-                icon: "🔗",
-                title: "On-Chain Verification",
-                desc: "Character progress and achievements stored and verified on Solana blockchain.",
-              },
-              {
-                icon: "🎮",
-                title: "Play Anytime",
-                desc: "Offline progress tracked and synced. Game doesn't require constant internet.",
+                icon: "🎯",
+                title: "Quests & Bosses",
+                desc: "Epic boss encounters, multi-step quests, and hidden dungeons to discover and conquer.",
               },
             ].map((feature, i) => (
               <div
@@ -109,59 +109,49 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Solana Integration Section */}
+        {/* Game Vision */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="bg-gradient-to-br from-lattice-panel via-lattice-panel/50 to-lattice-bg border border-lattice-edge rounded-2xl p-12 md:p-16">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold mb-6">Powered by Solana</h2>
-                <p className="text-lg text-lattice-dim mb-8 leading-relaxed">
-                  Your gaming achievements matter. When Solana integration launches, your in-game
-                  progression will be cryptographically verified and convertible to real SPL tokens.
+            <h2 className="text-4xl font-bold mb-8">The Vision</h2>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-6">
+                <p className="text-lg text-lattice-dim leading-relaxed">
+                  Prooflayer is built for players who love the grind. Whether you're AFK training or actively
+                  hunting bosses, there's always something to progress. We're inspired by classic RPGs—Old School RuneScape,
+                  Dark Souls, and roguelikes—but built from the ground up with modern game design.
                 </p>
 
                 <div className="space-y-4">
+                  <h3 className="font-bold text-lg">What Makes Us Different:</h3>
                   {[
-                    "Earn $SPL tokens through legitimate gameplay",
-                    "Trade, transfer, or stake your rewards",
-                    "Verifiable on-chain achievement history",
-                    "Low transaction fees and fast settlements",
+                    "Server-authoritative gameplay (no hacking or cheating)",
+                    "Play offline, sync when you return",
+                    "Fair economy with actual player-driven markets",
+                    "Regular content updates and seasonal events",
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <span className="text-lattice-accent font-bold">✓</span>
+                      <span className="text-lattice-accent font-bold">✦</span>
                       <span className="text-lattice-text">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-lattice-accent/20 to-transparent rounded-lg blur-xl" />
-                <div className="relative bg-lattice-bg border border-lattice-accent/30 rounded-lg p-8 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl">◆</span>
-                    <span className="font-bold text-lattice-accent">Solana Network</span>
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">Roadmap</h3>
+                <div className="space-y-4 text-sm">
+                  <div className="p-4 bg-lattice-bg/50 border border-lattice-edge rounded-lg">
+                    <div className="font-bold text-lattice-accent mb-1">Phase 1 (Now)</div>
+                    <div className="text-lattice-dim">Core gameplay loop, 3 starter skills, boss encounters</div>
                   </div>
-
-                  <div className="space-y-4 text-sm text-lattice-dim">
-                    <div className="flex justify-between">
-                      <span>Phase 1 (Current):</span>
-                      <span className="text-lattice-accent">Game Fundamentals</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Phase 2 (Q3 2026):</span>
-                      <span className="text-lattice-accent">Token Bridge</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Phase 3 (Q4 2026):</span>
-                      <span className="text-lattice-accent">DeFi Integration</span>
-                    </div>
+                  <div className="p-4 bg-lattice-bg/50 border border-lattice-edge rounded-lg opacity-60">
+                    <div className="font-bold text-lattice-dim mb-1">Phase 2 (2026)</div>
+                    <div className="text-lattice-dim">All 6 skills, player housing, guilds</div>
                   </div>
-
-                  <div className="pt-4 border-t border-lattice-edge">
-                    <p className="text-xs text-lattice-dim">
-                      Smart contracts audited and deployed on Solana mainnet-beta. Testnet available now.
-                    </p>
+                  <div className="p-4 bg-lattice-bg/50 border border-lattice-edge rounded-lg opacity-60">
+                    <div className="font-bold text-lattice-dim mb-1">Phase 3 (2026)</div>
+                    <div className="text-lattice-dim">PvP arenas, seasonal leagues, cosmetics</div>
                   </div>
                 </div>
               </div>
@@ -169,24 +159,37 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Crypto Section */}
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="bg-lattice-panel/30 border border-lattice-edge rounded-xl p-8 text-center">
+            <h3 className="text-2xl font-bold mb-4">Built for Web3</h3>
+            <p className="text-lattice-dim mb-6">
+              Prooflayer integrates with Solana for verifiable on-chain progress and token rewards.
+              Play the game you love, own your achievements.
+            </p>
+            <div className="inline-block px-6 py-3 rounded-lg bg-lattice-accent/10 border border-lattice-accent/30">
+              <p className="text-sm text-lattice-dim">
+                <span className="font-bold text-lattice-accent">Token address:</span> Coming soon
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
+          <h2 className="text-4xl font-bold mb-6">Join the Community</h2>
           <p className="text-xl text-lattice-dim mb-8">
-            Join the early access program and be part of the future of Web3 gaming.
+            Be the first to know when Prooflayer launches. Get exclusive early access and insider updates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/play"
-              className="px-8 py-4 rounded-lg bg-gradient-to-r from-lattice-accent to-lattice-accent/80 text-lattice-bg font-bold hover:shadow-lg hover:shadow-lattice-accent/50 transition-all transform hover:scale-105 text-lg"
-            >
-              Enter The Game
-            </a>
+            <button className="px-8 py-4 rounded-lg bg-gradient-to-r from-lattice-accent to-lattice-accent/80 text-lattice-bg font-bold hover:shadow-lg hover:shadow-lattice-accent/50 transition-all transform hover:scale-105 text-lg">
+              Get Notified
+            </button>
             <a
               href="https://twitter.com"
               className="px-8 py-4 rounded-lg border-2 border-lattice-accent/50 text-lattice-accent hover:border-lattice-accent hover:bg-lattice-accent/5 font-bold transition-all text-lg"
             >
-              Follow Updates
+              Follow on Twitter
             </a>
           </div>
         </section>
@@ -198,15 +201,15 @@ export default function Home() {
               <div>
                 <h4 className="font-bold mb-4">Prooflayer</h4>
                 <p className="text-sm text-lattice-dim">
-                  Isometric idle skilling meets Web3 rewards.
+                  An isometric RPG built for the grind.
                 </p>
               </div>
               <div>
                 <h4 className="font-bold mb-4">Game</h4>
                 <ul className="space-y-2 text-sm text-lattice-dim">
-                  <li><a href="/play" className="hover:text-lattice-accent">Play</a></li>
-                  <li><a href="#" className="hover:text-lattice-accent">Mechanics</a></li>
-                  <li><a href="#" className="hover:text-lattice-accent">Roadmap</a></li>
+                  <li><a href="#features" className="hover:text-lattice-accent">Features</a></li>
+                  <li><a href="#" className="hover:text-lattice-accent">Gameplay</a></li>
+                  <li><a href="#" className="hover:text-lattice-accent">Wiki</a></li>
                 </ul>
               </div>
               <div>
@@ -228,7 +231,7 @@ export default function Home() {
             </div>
 
             <div className="border-t border-lattice-edge pt-8 text-center text-sm text-lattice-dim">
-              <p>© 2026 Prooflayer. Building the future of Web3 gaming.</p>
+              <p>© 2026 Prooflayer. A game where the grind never ends.</p>
             </div>
           </div>
         </footer>
