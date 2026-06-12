@@ -5,13 +5,16 @@ export default function Terms() {
     <div className="w-full min-h-screen bg-lattice-bg text-lattice-text">
       {/* Fixed Navigation */}
       <nav className="fixed top-0 w-full border-b border-lattice-edge bg-lattice-bg/95 backdrop-blur z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="/" className="text-2xl font-bold text-lattice-accent">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="/" className="text-xl sm:text-2xl font-bold text-lattice-accent">
             ⬡ Prooflayer
           </a>
-          <div className="flex gap-8 items-center">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 items-center">
             <a href="/#features" className="text-sm hover:text-lattice-accent transition">
               Features
+            </a>
+            <a href="/coin" className="text-sm hover:text-lattice-accent transition">
+              Coin
             </a>
             <a href="/#faq" className="text-sm hover:text-lattice-accent transition">
               FAQ

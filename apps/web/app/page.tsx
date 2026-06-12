@@ -36,13 +36,16 @@ export default function Home() {
     <div className="w-full min-h-screen bg-lattice-bg text-lattice-text">
       {/* Fixed Navigation */}
       <nav className="fixed top-0 w-full border-b border-lattice-edge bg-lattice-bg/95 backdrop-blur z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#" className="text-2xl font-bold text-lattice-accent">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="#" className="text-xl sm:text-2xl font-bold text-lattice-accent">
             ⬡ Prooflayer
           </a>
-          <div className="flex gap-8 items-center">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 items-center">
             <a href="#features" className="text-sm hover:text-lattice-accent transition">
               Features
+            </a>
+            <a href="/coin" className="text-sm hover:text-lattice-accent transition">
+              Coin
             </a>
             <a href="#faq" className="text-sm hover:text-lattice-accent transition">
               FAQ
@@ -168,6 +171,11 @@ export default function Home() {
           <div className="inline-block px-4 py-2 rounded bg-lattice-bg border border-lattice-edge text-sm text-lattice-dim font-mono">
             AX6hiKrjzusB4k58zthxCg7WeXcw81z9a73rM9vvpump
           </div>
+          <div className="mt-6">
+            <a href="/coin" className="text-lattice-accent font-bold hover:underline">
+              Read the official token context page
+            </a>
+          </div>
         </div>
       </section>
 
@@ -262,6 +270,7 @@ export default function Home() {
               <h4 className="font-bold mb-4">Game</h4>
               <ul className="space-y-2 text-sm text-lattice-dim">
                 <li><a href="#features" className="hover:text-lattice-accent transition">Features</a></li>
+                <li><a href="/coin" className="hover:text-lattice-accent transition">Coin</a></li>
                 <li><a href="#faq" className="hover:text-lattice-accent transition">FAQ</a></li>
                 <li><a href="#contact" className="hover:text-lattice-accent transition">Contact</a></li>
               </ul>
