@@ -5,7 +5,7 @@ import {
   type WorldId,
   type WorldPosition,
 } from "@prooflayer/shared";
-import { MARKET_CROSS_SHOWCASE_MAP } from "./maps/market-cross-showcase";
+import { MARKET_CROSS_SHOWCASE_MAP } from "./maps/market-cross-showcase.js";
 
 export interface WorldShardConfig {
   id: WorldId;
